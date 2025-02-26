@@ -7,6 +7,7 @@
         "format": "cpp",
         "utility": "cpp",
         "xutility": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cstdlib": "cpp"
     }
 }
