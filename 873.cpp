@@ -1,27 +1,38 @@
 #include <vector>
 #include <iostream>
+#include <unordered_set>
 using namespace std;
 
 class Solution {
 public:
     int lenLongestFibSubseq(vector<int>& arr) {
-        int largestSub = 0;
-        vector<int> subArray; 
+        int maxSubarray = 0;
+        
+        int size = arr.size();
+        unordered_set<int> numSet(arr.begin(), arr.end());
 
-        if (arr.size() >= 3){
-            int start = 0;
-            int curr = 1;
+        for (int start = 0; start < size; ++start){
+            for (int next = start + 1; next < size; next++){
+                int prev = arr[next];
+                int curr = arr[start] + arr[next];
+                int len = 2;
 
-            
-        }else{
-            return 0;
+                while (numSet.find(curr) != numSet.end())
+                {
+                    int temp = curr;
+                    curr += prev;
+                    prev = temp;
+                    maxSubarray = max(maxSubarray, ++len);
+                }
+                
+            }
         }
-
+        return maxSubarray;
     }
 };
 
-int maint(){               
+int main(){               
     Solution mySolution;    // 1 2 3 5 8 = 5
-    vector<int> myArray = {1,2,3,4,5,6,7,8}; 
+    vector<int> myArray = {1,3,7,11,12,14,18}; 
     cout << mySolution.lenLongestFibSubseq(myArray) << endl;
 }
