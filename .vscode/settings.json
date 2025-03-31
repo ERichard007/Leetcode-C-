@@ -8,6 +8,7 @@
         "utility": "cpp",
         "xutility": "cpp",
         "iosfwd": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "queue": "cpp"
     }
 }
